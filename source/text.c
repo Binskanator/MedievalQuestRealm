@@ -1,4 +1,5 @@
 #include "../include/text.h"
+#include "../include/graphics.h"
 #include <string.h>
 
 // Font data - a simple 8x8 pixel font

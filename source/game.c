@@ -131,8 +131,8 @@ void updateGame() {
                                 case TILE_SHOP:
                                     if (keyPressed(&inputState, KEY_A)) {
                                         // Enter shop
-                                        initShop(&currentShop, SHOP_GENERAL);
-                                        initShop(&shopContext, &currentShop, &gameContext.player);
+                                        initShopWithType(&currentShop, SHOP_GENERAL);
+                                        initShopContext(&shopContext, &currentShop, &gameContext.player);
                                         setGameState(STATE_SHOP);
                                     }
                                     break;

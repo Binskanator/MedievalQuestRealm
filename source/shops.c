@@ -3,9 +3,10 @@
 #include "../include/text.h"
 #include "../include/graphics.h"
 #include <string.h>
+#include <stdio.h>
 
 // Initialize shop with appropriate inventory
-void initShop(Shop* shop, ShopType type) {
+void initShopWithType(Shop* shop, ShopType type) {
     shop->type = type;
     shop->itemCount = 0;
     
@@ -55,7 +56,7 @@ void initShop(Shop* shop, ShopType type) {
 }
 
 // Initialize shop context for UI
-void initShop(ShopContext* context, Shop* shop, Player* player) {
+void initShopContext(ShopContext* context, Shop* shop, Player* player) {
     context->shop = shop;
     context->player = player;
     context->state = SHOP_STATE_BROWSING;

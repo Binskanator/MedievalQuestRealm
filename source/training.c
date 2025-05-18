@@ -4,6 +4,7 @@
 #include "../include/text.h"
 #include "../include/game.h"
 #include <string.h>
+#include <stdio.h>
 
 // Initialize training context
 void initTraining(TrainingContext* context, Player* player) {

@@ -1,6 +1,7 @@
 #include "../include/combat.h"
 #include "../include/game.h"
 #include <string.h>
+#include <stdio.h>
 
 // Initialize combat with player and enemy
 void initCombat(CombatContext* context, Player* player, Enemy* enemy) {

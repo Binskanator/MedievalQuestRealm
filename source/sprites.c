@@ -1,4 +1,6 @@
 #include "../include/sprites.h"
+#include "../include/characters.h"
+#include "../include/enemies.h"
 #include <stdlib.h>
 
 // Sprite system state
