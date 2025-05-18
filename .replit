@@ -1,0 +1,40 @@
+modules = ["c"]
+
+[nix]
+channel = "stable-24_05"
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "GBA Emulator"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "gba_game"
+
+[[workflows.workflow]]
+name = "GBA Emulator"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "gcc -o medieval_rpg source/*.c -I./include -lm && ./medieval_rpg"
+waitForPort = 5000
+
+[[workflows.workflow]]
+name = "gba_game"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "make && mgba-qt ./game.gba"
+
+[deployment]
+run = ["sh", "-c", "gcc -o medieval_rpg source/*.c -I./include -lm && ./medieval_rpg"]
