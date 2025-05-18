@@ -1,49 +1,19 @@
-# Makefile for Medieval RPG GBA Game
+# Makefile for building and testing the Medieval RPG GBA Game
 
-# Set the name of the output ROM
-TARGET := game
+# Simple test version for PC
+test:
+	gcc -o test_rpg simple_gba_game.c
+	./test_rpg
 
-# GBA tools and compiler settings
-CC := gcc
-LD := gcc
-OBJCOPY := objcopy
-CFLAGS := -O2 -Wall 
-LDFLAGS := -lm
+# Build GBA version using devkitPro tools (when available)
+gba:
+	@echo "Building GBA ROM..."
+	@echo "Note: This requires devkitPro tools to be installed."
+	@echo "For now, running the test version."
+	make test
 
-# Include paths
-INCLUDE := -I./include
-
-# Source directories
-SOURCES := $(wildcard source/*.c)
-OBJECTS := $(SOURCES:.c=.o)
-ASM_SOURCES := source/crt0.s
-ASM_OBJECTS := $(ASM_SOURCES:.s=.o)
-
-# Build rules
-.PHONY: all clean
-
-all: $(TARGET).gba
-
-# For testing on PC (not actual GBA compilation)
-$(TARGET).gba: $(OBJECTS) 
-        $(LD) -o $(TARGET) $(OBJECTS) $(LDFLAGS)
-        touch $(TARGET).gba
-
-# For testing on an emulator/PC
-$(TARGET): $(OBJECTS)
-        $(LD) -o $@ $^ $(LDFLAGS)
-
-# Compile C files
-%.o: %.c
-        $(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
-
-# Assemble ASM files (not used in this simplified version)
-%.o: %.s
-        $(CC) $(CFLAGS) -c $< -o $@
-
+# Clean build files
 clean:
-        @rm -f $(OBJECTS)
-        @rm -f $(ASM_OBJECTS)
-        @rm -f $(TARGET)
-        @rm -f $(TARGET).gba
-        @rm -f $(TARGET).map
+	rm -f test_rpg game.gba *.o
+
+.PHONY: test gba clean
