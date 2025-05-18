@@ -1,19 +1,21 @@
-# Makefile for building and testing the Medieval RPG GBA Game
 
-# Simple test version for PC
+# Main Makefile for Medieval RPG GBA Game
+
+# Default target - build the GBA version
+all: gba
+
+# Build GBA version using devkitPro tools
+gba:
+	@$(MAKE) -f Makefile.gba
+
+# Simple test version for PC (for development/testing)
 test:
 	gcc -o test_rpg simple_gba_game.c
 	./test_rpg
 
-# Build GBA version using devkitPro tools (when available)
-gba:
-	@echo "Building GBA ROM..."
-	@echo "Note: This requires devkitPro tools to be installed."
-	@echo "For now, running the test version."
-	make test
-
 # Clean build files
 clean:
-	rm -f test_rpg game.gba *.o
+	rm -f test_rpg *.o
+	$(MAKE) -f Makefile.gba clean
 
-.PHONY: test gba clean
+.PHONY: all gba test clean
