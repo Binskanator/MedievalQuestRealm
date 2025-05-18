@@ -1,3 +1,12 @@
+
+#include "../include/combat.h"
+#include "../include/input.h"
+#include "../include/graphics.h"
+#include "../include/text.h"
+#include <stdlib.h>
+
+InputState inputState;
+
 #include "../include/combat.h"
 #include "../include/game.h"
 #include <string.h>

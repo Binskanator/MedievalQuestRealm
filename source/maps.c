@@ -4,7 +4,7 @@
 
 // Map database (predefined maps)
 Map MAP_DATABASE[10]; // Up to 10 maps
-int MAP_DATABASE_SIZE = 0;
+const int MAP_DATABASE_SIZE = 0;
 
 // Map change database
 MapChange MAP_CHANGES[20]; // Up to 20 map transitions

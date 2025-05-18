@@ -1,3 +1,9 @@
+
+#include "../include/characters.h"
+#include "../include/enemies.h"
+#include "../include/items.h"
+#include <stdlib.h>
+
 #include "../include/characters.h"
 #include <string.h>
 

@@ -1,21 +1,21 @@
 
-# Main Makefile for Medieval RPG GBA Game
+CC = gcc
+CFLAGS = -Wall -I./include
+LDFLAGS = -lm
 
-# Default target - build the GBA version
-all: gba
+SRCS = $(wildcard source/*.c)
+OBJS = $(SRCS:.c=.o)
+TARGET = medieval_rpg
 
-# Build GBA version using devkitPro tools
-gba:
-	@$(MAKE) -f Makefile.gba
+all: $(TARGET)
 
-# Simple test version for PC (for development/testing)
-test:
-	gcc -o test_rpg simple_gba_game.c
-	./test_rpg
+$(TARGET): $(OBJS)
+	$(CC) $(OBJS) -o $(TARGET) $(LDFLAGS)
 
-# Clean build files
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
-	rm -f test_rpg *.o
-	$(MAKE) -f Makefile.gba clean
+	rm -f $(OBJS) $(TARGET)
 
-.PHONY: all gba test clean
+.PHONY: all clean

@@ -45,7 +45,7 @@ void drawImage(int x, int y, int width, int height, const unsigned short* image)
 void drawSprite(int id, int x, int y, int tileIndex, int palBank, FlipMode flip);
 
 // Hide a sprite
-void hideSprite(int id);
+void hideGraphicsSprite(int id);
 
 // Update all sprites
 void updateSprites();
