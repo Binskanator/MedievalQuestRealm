@@ -37,4 +37,4 @@ task = "shell.exec"
 args = "make && mgba-qt ./game.gba"
 
 [deployment]
-run = ["sh", "-c", "gcc -o medieval_rpg source/*.c -I./include -lm && ./medieval_rpg"]
+run = ["make"]
