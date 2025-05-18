@@ -1,0 +1,7 @@
+# Simple test Makefile for Medieval RPG
+all:
+	gcc -o test_rpg test_game.c
+	./test_rpg
+
+clean:
+	rm -f test_rpg

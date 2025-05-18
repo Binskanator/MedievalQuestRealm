@@ -61,4 +61,16 @@ void loadSpriteTiles(const unsigned short* tiles, int tileCount);
 // Load sprite palette
 void loadSpritePalette(const unsigned short* palette, int paletteSize);
 
+// Create a player sprite based on character class
+Sprite* createPlayerSprite(CharacterClass class);
+
+// Create an enemy sprite based on enemy type
+Sprite* createEnemySprite(EnemyType type);
+
+// Create an NPC sprite
+Sprite* createNPCSprite(int x, int y);
+
+// Update all sprites
+void updateSprites();
+
 #endif // SPRITES_H

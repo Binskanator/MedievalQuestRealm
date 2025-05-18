@@ -41,7 +41,10 @@ typedef struct {
 } ShopContext;
 
 // Initialize shop with appropriate inventory
-void initShop(Shop* shop, ShopType type);
+void initShopWithType(Shop* shop, ShopType type);
+
+// Initialize shop context for UI
+void initShopContext(ShopContext* context, Shop* shop, Player* player);
 
 // Buy item from shop
 int buyItem(ShopContext* context, int itemIndex, int quantity);
